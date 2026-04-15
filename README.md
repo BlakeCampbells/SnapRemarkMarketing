@@ -12,4 +12,4 @@ npm run dev
 ## Notes
 
 - The site reuses the existing SnapRemark logo and app icon from the iOS project.
-- Update the placeholder `appStoreUrl` in `app/pages/index.vue` once the App Store listing URL is available.
+- The App Store CTA points to the live SnapRemark listing in `app/pages/index.vue`.

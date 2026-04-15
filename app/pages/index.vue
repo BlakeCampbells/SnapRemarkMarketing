@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const appStoreUrl = "#"
+const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
 
 useSeoMeta({
   title: "SnapRemark",
@@ -79,15 +79,11 @@ const highlights = [
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary" :href="appStoreUrl">Get it on the App Store</a>
+            <a class="button button-primary" :href="appStoreUrl" target="_blank" rel="noreferrer">
+              Get it on the App Store
+            </a>
             <a class="button button-secondary" href="#how-it-works">See how it plays</a>
           </div>
-
-          <p class="hero-note">
-            Replace the placeholder App Store URL in
-            <code>/Users/blakecampbell/Desktop/BenefitMany/SnapRemark-marketing/app/pages/index.vue</code>
-            when the listing is ready.
-          </p>
         </div>
 
         <div class="hero-art" aria-hidden="true">
@@ -152,7 +148,9 @@ const highlights = [
         </div>
 
         <div class="cta-actions">
-          <a class="button button-primary" :href="appStoreUrl">Open App Store</a>
+          <a class="button button-primary" :href="appStoreUrl" target="_blank" rel="noreferrer">
+            Open App Store
+          </a>
           <a class="button button-secondary" href="#top">Back to top</a>
         </div>
       </section>
