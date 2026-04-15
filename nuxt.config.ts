@@ -2,8 +2,22 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-04-15",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "",
+      siteName: "SnapRemark"
+    }
+  },
+  nitro: {
+    prerender: {
+      routes: ["/", "/catchphrase-alternative", "/robots.txt", "/sitemap.xml"]
+    }
+  },
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en"
+      },
       title: "SnapRemark",
       titleTemplate: "%s | SnapRemark",
       meta: [
@@ -28,10 +42,15 @@ export default defineNuxtConfig({
         {
           property: "og:image",
           content: "/app-icon.png"
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image"
         }
       ],
       link: [
         { rel: "icon", type: "image/png", href: "/app-icon.png" },
+        { rel: "apple-touch-icon", href: "/app-icon.png" },
         {
           rel: "preconnect",
           href: "https://fonts.googleapis.com"
