@@ -1,15 +1,90 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
+const runtimeConfig = useRuntimeConfig()
+const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
+const canonicalUrl = siteUrl ? `${siteUrl}/` : undefined
 
 useSeoMeta({
-  title: "SnapRemark",
+  title: "SnapRemark Party Word Game",
   description:
-    "The quick-thinking clue game for parties, family nights, classrooms, and overly competitive friend groups.",
-  ogTitle: "SnapRemark",
+    "SnapRemark is a fast-paced party word game for iPhone with team rounds, hand-off chaos, and category packs that make it a strong CatchPhrase alternative.",
+  ogTitle: "SnapRemark Party Word Game",
   ogDescription:
-    "Bring fast-paced clue giving to any room with team rounds, hand-off mode, and category packs that keep the energy high.",
+    "A lively clue game for parties, family nights, classrooms, and competitive friend groups. Play fast rounds, swap modes, and keep the room loud.",
   ogImage: "/app-icon.png",
+  ogType: "website",
+  ogUrl: canonicalUrl,
+  twitterTitle: "SnapRemark Party Word Game",
+  twitterDescription:
+    "Fast rounds, bright visuals, team play, and hand-off chaos for your next game night.",
+  twitterImage: "/app-icon.png",
   twitterCard: "summary_large_image"
+})
+
+useHead({
+  link: canonicalUrl
+    ? [
+        {
+          rel: "canonical",
+          href: canonicalUrl
+        }
+      ]
+    : [],
+  script: [
+    {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "SnapRemark",
+        applicationCategory: "GameApplication",
+        operatingSystem: "iOS",
+        description:
+          "SnapRemark is a fast-paced party word game for team rounds, hand-off mode, and category-based clue play.",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD"
+        },
+        url: canonicalUrl,
+        downloadUrl: appStoreUrl,
+        image: siteUrl ? `${siteUrl}/app-icon.png` : "/app-icon.png"
+      })
+    },
+    {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What kind of game is SnapRemark?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "SnapRemark is a clue-giving party word game for iPhone. Players describe words quickly, score points in team rounds, and can switch to a hand-off mode for a more chaotic pace."
+            }
+          },
+          {
+            "@type": "Question",
+            name: "Is SnapRemark a good CatchPhrase alternative?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "SnapRemark works well for people searching for a CatchPhrase or Catch Phrase alternative because it keeps the same fast clue-game energy while adding category packs, bright mobile-first design, and multiple ways to play."
+            }
+          },
+          {
+            "@type": "Question",
+            name: "Can you play SnapRemark at parties or family nights?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. SnapRemark is designed for parties, family gatherings, classrooms, team events, and any group that wants a quick game-night activity without a long setup."
+            }
+          }
+        ]
+      })
+    }
+  ]
 })
 
 const stats = [
@@ -53,6 +128,39 @@ const highlights = [
   "Category-based clue packs for different rooms and moods",
   "A mobile-first experience that keeps the action moving"
 ]
+
+const comparisonPoints = [
+  {
+    title: "More than one style of round",
+    body: "SnapRemark gives groups a choice between classic team play and pass-the-phone chaos, so the game can match the room."
+  },
+  {
+    title: "Built for modern phones",
+    body: "The interface is made for fast taps, quick resets, and lively in-person play instead of feeling like a digital afterthought."
+  },
+  {
+    title: "Category variety for repeat sessions",
+    body: "Switching categories helps keep repeat game nights from feeling too familiar."
+  }
+]
+
+const faqs = [
+  {
+    question: "What makes SnapRemark different from other party word games?",
+    answer:
+      "SnapRemark focuses on quick setup, high-energy clue giving, and multiple styles of play so the game feels flexible for parties, family nights, and classrooms."
+  },
+  {
+    question: "Why might someone search for SnapRemark instead of CatchPhrase?",
+    answer:
+      "People often want the same fast clue-game format with a mobile-first feel, different modes, and more variety for repeated rounds. SnapRemark is built to meet that search intent."
+  },
+  {
+    question: "Is SnapRemark good for large groups?",
+    answer:
+      "Yes. It works best with lively groups that want a simple phone-driven game they can start quickly and keep moving without complicated rules."
+  }
+]
 </script>
 
 <template>
@@ -65,6 +173,7 @@ const highlights = [
       <nav class="site-nav" aria-label="Primary">
         <a href="#how-it-works">How it works</a>
         <a href="#modes">Modes</a>
+        <a href="#comparison">CatchPhrase alternative</a>
         <a href="#download">Download</a>
       </nav>
     </header>
@@ -75,8 +184,12 @@ const highlights = [
           <p class="eyebrow">The quick-thinking clue game</p>
           <h1>Bring instant game-night energy to the room.</h1>
           <p class="hero-text">
-            SnapRemark is a free, ad-free clue game built for fast, funny rounds with bright visuals,
+            SnapRemark is a free, ad-free party word game for iPhone built for fast, funny rounds with bright visuals,
             quick pacing, and enough chaos to keep everyone locked in.
+          </p>
+          <p class="hero-note">
+            If you are looking for a CatchPhrase alternative that feels great on mobile, SnapRemark gives you fast team
+            play, hand-off pressure, and category variety in one app.
           </p>
 
           <div class="hero-actions">
@@ -138,6 +251,45 @@ const highlights = [
           <article v-for="mode in modes" :key="mode.name" class="mode-card">
             <p class="mode-label">{{ mode.name }}</p>
             <p>{{ mode.description }}</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="comparison" class="comparison-section">
+        <div class="section-heading">
+          <p class="eyebrow">CatchPhrase alternative</p>
+          <h2>Looking for a CatchPhrase-style game that feels great on iPhone?</h2>
+          <p class="section-intro">
+            SnapRemark is built for the same fast clue-giving energy people love in Catch Phrase style party games,
+            while adding flexible modes and category variety for repeat game nights.
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          <article v-for="point in comparisonPoints" :key="point.title" class="comparison-card">
+            <h3>{{ point.title }}</h3>
+            <p>{{ point.body }}</p>
+          </article>
+        </div>
+
+        <div class="comparison-cta">
+          <p>
+            Want the fuller breakdown? Visit the dedicated
+            <NuxtLink to="/catchphrase-alternative">CatchPhrase alternative page</NuxtLink>.
+          </p>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-labelledby="faq-heading">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-heading">Answers for players, hosts, and search engines.</h2>
+        </div>
+
+        <div class="faq-list">
+          <article v-for="faq in faqs" :key="faq.question" class="faq-card">
+            <h3>{{ faq.question }}</h3>
+            <p>{{ faq.answer }}</p>
           </article>
         </div>
       </section>
