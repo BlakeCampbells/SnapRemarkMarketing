@@ -1,0 +1,14 @@
+{
+  "name": "snapremark-marketing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@oxc-parser/binding-darwin-arm64": "^0.117.0",
+    "nuxt": "latest"
+  }
+}
