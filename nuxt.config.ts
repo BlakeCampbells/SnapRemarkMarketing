@@ -10,7 +10,17 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ["/", "/catchphrase-alternative", "/robots.txt", "/sitemap.xml"]
+      routes: [
+        "/",
+        "/about",
+        "/how-to-play",
+        "/party-word-game",
+        "/word-guessing-game-iphone",
+        "/family-party-game",
+        "/team-building-word-game",
+        "/robots.txt",
+        "/sitemap.xml"
+      ]
     }
   },
   app: {

@@ -7,7 +7,7 @@ const canonicalUrl = siteUrl ? `${siteUrl}/` : undefined
 useSeoMeta({
   title: "SnapRemark Party Word Game",
   description:
-    "SnapRemark is a fast-paced party word game for iPhone with team rounds, hand-off chaos, and category packs that make it a strong CatchPhrase alternative.",
+    "SnapRemark is a fast-paced party word game for iPhone with team rounds, hand-off chaos, and category packs for repeat game nights.",
   ogTitle: "SnapRemark Party Word Game",
   ogDescription:
     "A lively clue game for parties, family nights, classrooms, and competitive friend groups. Play fast rounds, swap modes, and keep the room loud.",
@@ -67,10 +67,10 @@ useHead({
           },
           {
             "@type": "Question",
-            name: "Is SnapRemark a good CatchPhrase alternative?",
+            name: "Is SnapRemark a good party word game for iPhone?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "SnapRemark works well for people searching for a CatchPhrase or Catch Phrase alternative because it keeps the same fast clue-game energy while adding category packs, bright mobile-first design, and multiple ways to play."
+              text: "Yes. SnapRemark works well for people searching for a fast party word game on iPhone because it combines quick clue-based rounds, category variety, bright mobile-first design, and multiple ways to play."
             }
           },
           {
@@ -151,14 +151,53 @@ const faqs = [
       "SnapRemark focuses on quick setup, high-energy clue giving, and multiple styles of play so the game feels flexible for parties, family nights, and classrooms."
   },
   {
-    question: "Why might someone search for SnapRemark instead of CatchPhrase?",
+    question: "Why might someone search for SnapRemark?",
     answer:
-      "People often want the same fast clue-game format with a mobile-first feel, different modes, and more variety for repeated rounds. SnapRemark is built to meet that search intent."
+      "People often want a fast clue-game format with a mobile-first feel, different modes, and more variety for repeated rounds. SnapRemark is built to meet that kind of search intent."
   },
   {
     question: "Is SnapRemark good for large groups?",
     answer:
       "Yes. It works best with lively groups that want a simple phone-driven game they can start quickly and keep moving without complicated rules."
+  }
+]
+
+const resources = [
+  {
+    title: "How to play",
+    body: "A simple walkthrough of modes, rounds, scoring, and the kind of pacing that makes the game fun in a real room.",
+    to: "/how-to-play",
+    cta: "Read how to play"
+  },
+  {
+    title: "Party word game",
+    body: "A broader landing page for players searching for lively clue-based party games on iPhone.",
+    to: "/party-word-game",
+    cta: "Explore the party game page"
+  },
+  {
+    title: "Word guessing game for iPhone",
+    body: "Focused copy for searchers who know they want a mobile word guessing game first and foremost.",
+    to: "/word-guessing-game-iphone",
+    cta: "See the iPhone word game page"
+  },
+  {
+    title: "Family party game",
+    body: "A page tailored for family nights, holidays, and mixed-age groups that want something quick to explain.",
+    to: "/family-party-game",
+    cta: "Visit the family game page"
+  },
+  {
+    title: "Team-building word game",
+    body: "A use-case page for work events, classroom teams, and icebreaker-style group sessions.",
+    to: "/team-building-word-game",
+    cta: "Open the team-building page"
+  },
+  {
+    title: "About SnapRemark",
+    body: "Context about what the game is trying to do well and why it is built around fast, social, replayable rounds.",
+    to: "/about",
+    cta: "Read the about page"
   }
 ]
 </script>
@@ -173,7 +212,8 @@ const faqs = [
       <nav class="site-nav" aria-label="Primary">
         <a href="#how-it-works">How it works</a>
         <a href="#modes">Modes</a>
-        <a href="#comparison">CatchPhrase alternative</a>
+        <a href="#comparison">Party word game</a>
+        <a href="#resources">Guides</a>
         <a href="#download">Download</a>
       </nav>
     </header>
@@ -188,8 +228,8 @@ const faqs = [
             quick pacing, and enough chaos to keep everyone locked in.
           </p>
           <p class="hero-note">
-            If you are looking for a CatchPhrase alternative that feels great on mobile, SnapRemark gives you fast team
-            play, hand-off pressure, and category variety in one app.
+            If you want a fast, phone-first alternative to classic pass-and-guess party games, SnapRemark gives you
+            team play, hand-off pressure, and category variety in one app.
           </p>
 
           <div class="hero-actions">
@@ -257,10 +297,10 @@ const faqs = [
 
       <section id="comparison" class="comparison-section">
         <div class="section-heading">
-          <p class="eyebrow">CatchPhrase alternative</p>
-          <h2>Looking for a CatchPhrase-style game that feels great on iPhone?</h2>
+          <p class="eyebrow">Party word game</p>
+          <h2>Looking for a clue-based party game that feels great on iPhone?</h2>
           <p class="section-intro">
-            SnapRemark is built for the same fast clue-giving energy people love in Catch Phrase style party games,
+            SnapRemark is built for the same fast clue-giving energy people love in classic clue-based party games,
             while adding flexible modes and category variety for repeat game nights.
           </p>
         </div>
@@ -275,7 +315,7 @@ const faqs = [
         <div class="comparison-cta">
           <p>
             Want the fuller breakdown? Visit the dedicated
-            <NuxtLink to="/catchphrase-alternative">CatchPhrase alternative page</NuxtLink>.
+            <NuxtLink to="/party-word-game">party word game page</NuxtLink>.
           </p>
         </div>
       </section>
@@ -290,6 +330,27 @@ const faqs = [
           <article v-for="faq in faqs" :key="faq.question" class="faq-card">
             <h3>{{ faq.question }}</h3>
             <p>{{ faq.answer }}</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="resources" class="resource-section" aria-labelledby="resource-heading">
+        <div class="section-heading">
+          <p class="eyebrow">More to explore</p>
+          <h2 id="resource-heading">Helpful pages for different kinds of players.</h2>
+          <p class="section-intro">
+            These pages answer different questions people have before downloading a game for parties, family nights,
+            classrooms, or team events.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+          <article v-for="resource in resources" :key="resource.to" class="resource-card">
+            <div>
+              <h3>{{ resource.title }}</h3>
+              <p>{{ resource.body }}</p>
+            </div>
+            <NuxtLink :to="resource.to">{{ resource.cta }}</NuxtLink>
           </article>
         </div>
       </section>

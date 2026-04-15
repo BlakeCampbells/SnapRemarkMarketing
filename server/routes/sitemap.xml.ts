@@ -5,9 +5,34 @@ const routeEntries = [
     priority: "1.0"
   },
   {
-    path: "/catchphrase-alternative",
+    path: "/about",
+    changefreq: "monthly",
+    priority: "0.6"
+  },
+  {
+    path: "/how-to-play",
+    changefreq: "weekly",
+    priority: "0.8"
+  },
+  {
+    path: "/party-word-game",
     changefreq: "weekly",
     priority: "0.9"
+  },
+  {
+    path: "/word-guessing-game-iphone",
+    changefreq: "weekly",
+    priority: "0.8"
+  },
+  {
+    path: "/family-party-game",
+    changefreq: "weekly",
+    priority: "0.8"
+  },
+  {
+    path: "/team-building-word-game",
+    changefreq: "weekly",
+    priority: "0.8"
   }
 ]
 
