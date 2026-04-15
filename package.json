@@ -8,7 +8,6 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@oxc-parser/binding-darwin-arm64": "^0.117.0",
     "nuxt": "latest"
   }
 }
