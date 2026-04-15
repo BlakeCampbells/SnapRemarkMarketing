@@ -48,6 +48,7 @@ const modes = [
 
 const highlights = [
   "Quick setup for game nights and parties",
+  "Free to play with no ads interrupting the room",
   "Bright, playful interface that feels good in a group",
   "Category-based clue packs for different rooms and moods",
   "A mobile-first experience that keeps the action moving"
@@ -74,8 +75,8 @@ const highlights = [
           <p class="eyebrow">The quick-thinking clue game</p>
           <h1>Bring instant game-night energy to the room.</h1>
           <p class="hero-text">
-            SnapRemark turns clue-giving into a fast, funny, high-pressure party game with bright visuals,
-            quick rounds, and enough chaos to keep everyone locked in.
+            SnapRemark is a free, ad-free clue game built for fast, funny rounds with bright visuals,
+            quick pacing, and enough chaos to keep everyone locked in.
           </p>
 
           <div class="hero-actions">
@@ -144,7 +145,7 @@ const highlights = [
       <section class="cta-panel" id="download">
         <div>
           <p class="eyebrow">Ready for your next round?</p>
-          <h2>Put SnapRemark in everyone’s hands before the snacks are gone.</h2>
+          <h2>Download SnapRemark and start the next round in minutes.</h2>
         </div>
 
         <div class="cta-actions">
