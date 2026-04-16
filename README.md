@@ -15,4 +15,4 @@ npm run dev
 - Node.js `22.20.0` or newer is required.
 - The site reuses the existing SnapRemark logo and app icon from the iOS project.
 - The App Store CTA points to the live SnapRemark listing in `app/pages/index.vue`.
-- Set `NUXT_PUBLIC_SITE_URL` in production so canonical tags, `robots.txt`, and `sitemap.xml` use the live domain.
+- `NUXT_PUBLIC_SITE_URL` is set to `https://snapremark.com` for local and production builds so canonical tags, `robots.txt`, and `sitemap.xml` use the live domain.

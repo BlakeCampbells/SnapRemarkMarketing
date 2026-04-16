@@ -1,6 +1,10 @@
 export default defineEventHandler((event) => {
   const config = useRuntimeConfig(event)
-  const siteUrl = config.public.siteUrl.replace(/\/$/, "")
+  const trimmedSiteUrl = config.public.siteUrl.replace(/\/$/, "")
+  const forwardedProto = getHeader(event, "x-forwarded-proto")
+  const forwardedHost = getHeader(event, "x-forwarded-host")
+  const host = forwardedHost || getHeader(event, "host")
+  const siteUrl = trimmedSiteUrl || (host ? `${forwardedProto || (import.meta.dev ? "http" : "https")}://${host}` : "")
   const hostLine = siteUrl ? `Host: ${siteUrl}\n` : ""
   const sitemapLine = siteUrl ? `Sitemap: ${siteUrl}/sitemap.xml\n` : ""
 

@@ -36,9 +36,38 @@ const routeEntries = [
   }
 ]
 
+function escapeXml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;")
+}
+
+function getSiteUrl(event: Parameters<typeof defineEventHandler>[0], configuredSiteUrl: string) {
+  const trimmedSiteUrl = configuredSiteUrl.replace(/\/$/, "")
+
+  if (trimmedSiteUrl) {
+    return trimmedSiteUrl
+  }
+
+  const forwardedProto = getHeader(event, "x-forwarded-proto")
+  const forwardedHost = getHeader(event, "x-forwarded-host")
+  const host = forwardedHost || getHeader(event, "host")
+
+  if (!host) {
+    return ""
+  }
+
+  const protocol = forwardedProto || (import.meta.dev ? "http" : "https")
+
+  return `${protocol}://${host}`.replace(/\/$/, "")
+}
+
 export default defineEventHandler((event) => {
   const config = useRuntimeConfig(event)
-  const siteUrl = config.public.siteUrl.replace(/\/$/, "")
+  const siteUrl = getSiteUrl(event, config.public.siteUrl)
 
   setHeader(event, "content-type", "application/xml; charset=utf-8")
 
@@ -50,7 +79,7 @@ export default defineEventHandler((event) => {
   const urls = routeEntries
     .map(
       ({ path, changefreq, priority }) => `  <url>
-    <loc>${siteUrl}${path}</loc>
+    <loc>${escapeXml(`${siteUrl}${path}`)}</loc>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`
