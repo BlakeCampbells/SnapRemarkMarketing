@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
+      autoSubfolderIndex: false,
       routes: [
         "/",
         "/about",
