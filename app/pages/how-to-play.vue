@@ -1,35 +1,24 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
-const runtimeConfig = useRuntimeConfig()
-const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
-const canonicalUrl = siteUrl ? `${siteUrl}/how-to-play` : undefined
-
-useSeoMeta({
+const { canonicalUrl } = useSnapRemarkSeo({
   title: "How to Play SnapRemark",
   description:
     "Learn how to play SnapRemark, including Team Round, Hand Off, pacing tips, and how to get a fun game going quickly on iPhone.",
-  ogTitle: "How to Play SnapRemark",
-  ogDescription:
-    "A straightforward guide to starting a round, choosing a mode, keeping the pace up, and making SnapRemark fun for your group.",
-  ogImage: "/app-icon.png",
-  ogType: "article",
-  ogUrl: canonicalUrl,
-  twitterTitle: "How to Play SnapRemark",
-  twitterDescription:
-    "Simple instructions for getting SnapRemark running fast for parties, family nights, and team sessions.",
-  twitterImage: "/app-icon.png",
-  twitterCard: "summary_large_image"
+  path: "/how-to-play",
+  socialDescription:
+    "A straightforward guide to starting a round, choosing a mode, keeping the pace up, and making SnapRemark fun for your group."
 })
 
 useHead({
-  link: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : [],
   script: [
     {
+      id: "how-to-structured-data",
       type: "application/ld+json",
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "HowTo",
         name: "How to play SnapRemark",
+        url: canonicalUrl,
         description:
           "A quick guide to setting up SnapRemark, choosing a mode, and running a fun clue-based round on iPhone.",
         step: [

@@ -1,28 +1,12 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
-const runtimeConfig = useRuntimeConfig()
-const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
-const canonicalUrl = siteUrl ? `${siteUrl}/family-party-game` : undefined
-
-useSeoMeta({
+useSnapRemarkSeo({
   title: "Family Party Game for iPhone",
   description:
     "SnapRemark is a family party game for iPhone with quick setup, clue-based rounds, and flexible modes for holidays, trips, and game nights.",
-  ogTitle: "Family Party Game for iPhone",
-  ogDescription:
-    "A clue-based game for families who want something quick to start, easy to explain, and fun to replay.",
-  ogImage: "/app-icon.png",
-  ogType: "article",
-  ogUrl: canonicalUrl,
-  twitterTitle: "Family Party Game for iPhone",
-  twitterDescription:
-    "SnapRemark works well for family nights because it starts quickly and keeps the room engaged.",
-  twitterImage: "/app-icon.png",
-  twitterCard: "summary_large_image"
-})
-
-useHead({
-  link: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : []
+  path: "/family-party-game",
+  socialDescription:
+    "A clue-based game for families who want something quick to start, easy to explain, and fun to replay."
 })
 
 const scenarios = [

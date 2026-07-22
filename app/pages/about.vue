@@ -1,28 +1,12 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
-const runtimeConfig = useRuntimeConfig()
-const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
-const canonicalUrl = siteUrl ? `${siteUrl}/about` : undefined
-
-useSeoMeta({
+useSnapRemarkSeo({
   title: "About SnapRemark",
   description:
     "Learn what SnapRemark is built for: fast clue-based rounds, flexible group play, and quick setup for parties, family nights, and team sessions.",
-  ogTitle: "About SnapRemark",
-  ogDescription:
-    "An overview of the game philosophy behind SnapRemark and the kinds of social play it is designed to support.",
-  ogImage: "/app-icon.png",
-  ogType: "article",
-  ogUrl: canonicalUrl,
-  twitterTitle: "About SnapRemark",
-  twitterDescription:
-    "Read what SnapRemark is designed to do well and why the game is built around fast, social rounds.",
-  twitterImage: "/app-icon.png",
-  twitterCard: "summary_large_image"
-})
-
-useHead({
-  link: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : []
+  path: "/about",
+  socialDescription:
+    "Read what SnapRemark is designed to do well and why the game is built around fast, social rounds."
 })
 
 const principles = [

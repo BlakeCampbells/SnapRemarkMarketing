@@ -1,28 +1,12 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
-const runtimeConfig = useRuntimeConfig()
-const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
-const canonicalUrl = siteUrl ? `${siteUrl}/word-guessing-game-iphone` : undefined
-
-useSeoMeta({
+useSnapRemarkSeo({
   title: "Word Guessing Game for iPhone",
   description:
     "SnapRemark is a fast-paced word guessing game for iPhone with team rounds, hand-off mode, and category variety for social game nights.",
-  ogTitle: "Word Guessing Game for iPhone",
-  ogDescription:
-    "A mobile-first word guessing game built for quick clue-based rounds, lively groups, and repeat play.",
-  ogImage: "/app-icon.png",
-  ogType: "article",
-  ogUrl: canonicalUrl,
-  twitterTitle: "Word Guessing Game for iPhone",
-  twitterDescription:
-    "SnapRemark is an iPhone word guessing game designed for quick setup and loud, social rounds.",
-  twitterImage: "/app-icon.png",
-  twitterCard: "summary_large_image"
-})
-
-useHead({
-  link: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : []
+  path: "/word-guessing-game-iphone",
+  socialDescription:
+    "A mobile-first word guessing game built for quick clue-based rounds, lively groups, and repeat play."
 })
 
 const reasons = [

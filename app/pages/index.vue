@@ -1,90 +1,14 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
-const runtimeConfig = useRuntimeConfig()
-const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
-const canonicalUrl = siteUrl ? `${siteUrl}/` : undefined
 
-useSeoMeta({
-  title: "SnapRemark Party Word Game",
+const { canonicalUrl, siteUrl } = useSnapRemarkSeo({
+  title: "Free Party Word Game for iPhone",
   description:
-    "SnapRemark is a fast-paced party word game for iPhone with team rounds, hand-off chaos, and category packs for repeat game nights.",
-  ogTitle: "SnapRemark Party Word Game",
-  ogDescription:
-    "A lively clue game for parties, family nights, classrooms, and competitive friend groups. Play fast rounds, swap modes, and keep the room loud.",
-  ogImage: "/app-icon.png",
-  ogType: "website",
-  ogUrl: canonicalUrl,
-  twitterTitle: "SnapRemark Party Word Game",
-  twitterDescription:
-    "Fast rounds, bright visuals, team play, and hand-off chaos for your next game night.",
-  twitterImage: "/app-icon.png",
-  twitterCard: "summary_large_image"
-})
-
-useHead({
-  link: canonicalUrl
-    ? [
-        {
-          rel: "canonical",
-          href: canonicalUrl
-        }
-      ]
-    : [],
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: "SnapRemark",
-        applicationCategory: "GameApplication",
-        operatingSystem: "iOS",
-        description:
-          "SnapRemark is a fast-paced party word game for team rounds, hand-off mode, and category-based clue play.",
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD"
-        },
-        url: canonicalUrl,
-        downloadUrl: appStoreUrl,
-        image: siteUrl ? `${siteUrl}/app-icon.png` : "/app-icon.png"
-      })
-    },
-    {
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What kind of game is SnapRemark?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "SnapRemark is a clue-giving party word game for iPhone. Players describe words quickly, score points in team rounds, and can switch to a hand-off mode for a more chaotic pace."
-            }
-          },
-          {
-            "@type": "Question",
-            name: "Is SnapRemark a good party word game for iPhone?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. SnapRemark works well for people searching for a fast party word game on iPhone because it combines quick clue-based rounds, category variety, bright mobile-first design, and multiple ways to play."
-            }
-          },
-          {
-            "@type": "Question",
-            name: "Can you play SnapRemark at parties or family nights?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. SnapRemark is designed for parties, family gatherings, classrooms, team events, and any group that wants a quick game-night activity without a long setup."
-            }
-          }
-        ]
-      })
-    }
-  ]
+    "SnapRemark is a free, fast-paced party word game for iPhone with team rounds, hand-off chaos, and category packs for game nights.",
+  path: "/",
+  socialTitle: "SnapRemark: The Quick-Thinking Clue Game",
+  socialDescription:
+    "Fast rounds, bright visuals, team play, and hand-off chaos for your next game night."
 })
 
 const stats = [
@@ -146,21 +70,72 @@ const comparisonPoints = [
 
 const faqs = [
   {
-    question: "What makes SnapRemark different from other party word games?",
+    question: "What kind of game is SnapRemark?",
     answer:
-      "SnapRemark focuses on quick setup, high-energy clue giving, and multiple styles of play so the game feels flexible for parties, family nights, and classrooms."
+      "SnapRemark is a clue-giving party word game for iPhone. Players describe words quickly, score points in team rounds, and can switch to Hand Off mode for a more chaotic pace."
   },
   {
-    question: "Why might someone search for SnapRemark?",
+    question: "Is SnapRemark free to play?",
     answer:
-      "People often want a fast clue-game format with a mobile-first feel, different modes, and more variety for repeated rounds. SnapRemark is built to meet that kind of search intent."
+      "Yes. SnapRemark is free to download and play, with no ads interrupting the room."
   },
   {
-    question: "Is SnapRemark good for large groups?",
+    question: "Where can you play SnapRemark?",
     answer:
-      "Yes. It works best with lively groups that want a simple phone-driven game they can start quickly and keep moving without complicated rules."
+      "SnapRemark works well at parties, family gatherings, classrooms, team events, and any get-together that needs a quick game without a long setup."
   }
 ]
+
+useHead({
+  script: [
+    {
+      id: "app-structured-data",
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        name: "SnapRemark",
+        applicationCategory: "GameApplication",
+        operatingSystem: "iOS",
+        description:
+          "SnapRemark is a free, fast-paced party word game for team rounds, Hand Off mode, and category-based clue play.",
+        url: canonicalUrl,
+        downloadUrl: appStoreUrl,
+        installUrl: appStoreUrl,
+        image: `${siteUrl}/app-icon.png`,
+        isAccessibleForFree: true,
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD"
+        },
+        featureList: [
+          "Team Round mode",
+          "Hand Off mode",
+          "Category-based clue packs",
+          "Offline-friendly play",
+          "Ad-free group play"
+        ]
+      })
+    },
+    {
+      id: "faq-structured-data",
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer
+          }
+        }))
+      })
+    }
+  ]
+})
 
 const resources = [
   {
@@ -323,7 +298,7 @@ const resources = [
       <section class="faq-section" aria-labelledby="faq-heading">
         <div class="section-heading">
           <p class="eyebrow">FAQ</p>
-          <h2 id="faq-heading">Answers for players, hosts, and search engines.</h2>
+          <h2 id="faq-heading">Answers before your first round.</h2>
         </div>
 
         <div class="faq-list">

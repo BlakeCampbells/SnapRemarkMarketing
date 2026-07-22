@@ -1,49 +1,12 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
-const runtimeConfig = useRuntimeConfig()
-const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
-const canonicalUrl = siteUrl ? `${siteUrl}/party-word-game` : undefined
-
-useSeoMeta({
+useSnapRemarkSeo({
   title: "Party Word Game for iPhone",
   description:
     "SnapRemark is a fast-paced party word game for iPhone with team rounds, hand-off mode, and category variety for repeat game nights.",
-  ogTitle: "Party Word Game for iPhone",
-  ogDescription:
-    "SnapRemark brings fast clue-game energy to iPhone with flexible modes, category packs, and quick setup for parties and family nights.",
-  ogImage: "/app-icon.png",
-  ogType: "article",
-  ogUrl: canonicalUrl,
-  twitterTitle: "Party Word Game for iPhone",
-  twitterDescription:
-    "SnapRemark is a lively iPhone party word game built for quick rounds, team play, and repeat game nights.",
-  twitterImage: "/app-icon.png",
-  twitterCard: "summary_large_image"
-})
-
-useHead({
-  link: canonicalUrl
-    ? [
-        {
-          rel: "canonical",
-          href: canonicalUrl
-        }
-      ]
-    : [],
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Article",
-        headline: "Party Word Game for iPhone",
-        description:
-          "SnapRemark is a fast-paced iPhone party word game designed for players who want quick clue-based rounds and flexible group play.",
-        mainEntityOfPage: canonicalUrl,
-        image: siteUrl ? `${siteUrl}/app-icon.png` : "/app-icon.png"
-      })
-    }
-  ]
+  path: "/party-word-game",
+  socialDescription:
+    "SnapRemark brings fast clue-game energy to iPhone with flexible modes, category packs, and quick setup for parties and family nights."
 })
 
 const reasons = [

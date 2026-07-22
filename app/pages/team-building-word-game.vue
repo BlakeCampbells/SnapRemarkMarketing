@@ -1,28 +1,12 @@
 <script setup lang="ts">
 const appStoreUrl = "https://apps.apple.com/us/app/snapremark/id6738997529"
-const runtimeConfig = useRuntimeConfig()
-const siteUrl = runtimeConfig.public.siteUrl.replace(/\/$/, "")
-const canonicalUrl = siteUrl ? `${siteUrl}/team-building-word-game` : undefined
-
-useSeoMeta({
+useSnapRemarkSeo({
   title: "Team-Building Word Game",
   description:
     "SnapRemark is a team-building word game with fast clue-based rounds that work for work groups, classroom teams, and icebreaker sessions.",
-  ogTitle: "Team-Building Word Game",
-  ogDescription:
-    "A quick group word game for teams that want a low-friction icebreaker with plenty of energy.",
-  ogImage: "/app-icon.png",
-  ogType: "article",
-  ogUrl: canonicalUrl,
-  twitterTitle: "Team-Building Word Game",
-  twitterDescription:
-    "SnapRemark works well for group sessions that need a fast, social word game without a long rules lecture.",
-  twitterImage: "/app-icon.png",
-  twitterCard: "summary_large_image"
-})
-
-useHead({
-  link: canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : []
+  path: "/team-building-word-game",
+  socialDescription:
+    "A quick group word game for teams that want a low-friction icebreaker with plenty of energy."
 })
 
 const reasons = [

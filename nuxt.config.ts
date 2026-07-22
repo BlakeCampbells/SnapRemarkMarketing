@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "",
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://snapremark.com",
       siteName: "SnapRemark"
     }
   },
@@ -33,30 +33,12 @@ export default defineNuxtConfig({
       titleTemplate: "%s | SnapRemark",
       meta: [
         {
-          name: "description",
-          content:
-            "SnapRemark is the quick-thinking clue game for parties, teams, and chaotic game nights."
-        },
-        {
           name: "theme-color",
           content: "#3f6fe9"
         },
         {
-          property: "og:title",
-          content: "SnapRemark"
-        },
-        {
-          property: "og:description",
-          content:
-            "The quick-thinking clue game built for team rounds, hand-off chaos, and instant game-night energy."
-        },
-        {
-          property: "og:image",
-          content: "/app-icon.png"
-        },
-        {
-          name: "twitter:card",
-          content: "summary_large_image"
+          name: "apple-itunes-app",
+          content: "app-id=6738997529, app-argument=https://snapremark.com/"
         }
       ],
       link: [
