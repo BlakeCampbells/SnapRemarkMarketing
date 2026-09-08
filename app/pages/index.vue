@@ -146,27 +146,27 @@ const resources = [
   },
   {
     title: "Party word game",
-    body: "A broader landing page for players searching for lively clue-based party games on iPhone.",
+    body: "Get friends playing with quick clues, team rounds, and a pass-the-phone mode for your next party.",
     to: "/party-word-game",
-    cta: "Explore the party game page"
+    cta: "Plan your party game"
   },
   {
     title: "Word guessing game for iPhone",
-    body: "Focused copy for searchers who know they want a mobile word guessing game first and foremost.",
+    body: "See an example round, learn who holds the phone, and find out what you need to play with 3–12 people.",
     to: "/word-guessing-game-iphone",
-    cta: "See the iPhone word game page"
+    cta: "Learn the iPhone word game"
   },
   {
     title: "Family party game",
-    body: "A page tailored for family nights, holidays, and mixed-age groups that want something quick to explain.",
+    body: "Choose categories and a round style for your next family gathering. Check the app’s age rating before playing.",
     to: "/family-party-game",
-    cta: "Visit the family game page"
+    cta: "Plan a family game night"
   },
   {
     title: "Team-building word game",
-    body: "A use-case page for work events, classroom teams, and icebreaker-style group sessions.",
+    body: "Run a short group activity with a suggested 10-minute schedule, example clues, and questions to discuss afterward.",
     to: "/team-building-word-game",
-    cta: "Open the team-building page"
+    cta: "Use the team activity plan"
   },
   {
     title: "About SnapRemark",
