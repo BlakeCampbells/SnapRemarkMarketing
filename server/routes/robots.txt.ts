@@ -5,7 +5,6 @@ export default defineEventHandler((event) => {
   const forwardedHost = getHeader(event, "x-forwarded-host")
   const host = forwardedHost || getHeader(event, "host")
   const siteUrl = trimmedSiteUrl || (host ? `${forwardedProto || (import.meta.dev ? "http" : "https")}://${host}` : "")
-  const hostLine = siteUrl ? `Host: ${siteUrl}\n` : ""
   const sitemapLine = siteUrl ? `Sitemap: ${siteUrl}/sitemap.xml\n` : ""
 
   setHeader(event, "content-type", "text/plain; charset=utf-8")
@@ -13,5 +12,5 @@ export default defineEventHandler((event) => {
   return `User-agent: *
 Allow: /
 
-${hostLine}${sitemapLine}`.trimEnd()
+${sitemapLine}`.trimEnd()
 })
